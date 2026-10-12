@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rohit Chair & Sofa Repair Service | Delhi NCR Sofa & Chair Repair</title>
+    <meta name="description" content="Delhi NCR में भरोसेमंद Sofa & Chair Repair Service. घर बैठे सर्विस बुक करें और मुफ्त शुरुआती सलाह पाएं। Sofa repair, office chair repair, foam replacement & upholstery in Delhi, Noida, Ghaziabad, Gurugram & Faridabad.">
+    <meta name="keywords" content="Sofa Repair Service in Delhi NCR, Sofa Repair in Delhi, Chair Repair Service in Delhi NCR, Office Chair Repair, Sofa Foam Replacement, Sofa Upholstery Service, Furniture Repair in Noida, Chair Repair in Ghaziabad, Sofa Repair in Gurugram, Furniture Repair in Faridabad">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Supabase Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Rozha+One&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .hindi-title {
+            font-family: 'Rozha One', serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased selection:bg-amber-500 selection:text-white pb-16 md:pb-0">
+
+    <!-- Top Bar -->
+    <div class="bg-navy-950 text-amber-400 text-xs py-2 px-4 border-b border-navy-900 bg-slate-900">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-4">
+                <span class="flex items-center gap-1 font-medium"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-amber-400"></i> Service Areas: Delhi, Noida, Ghaziabad, Gurugram, Faridabad</span>
+            </div>
+            <div class="flex items-center gap-4 font-semibold">
+                <a href="tel:+918083637477" class="flex items-center gap-1 hover:text-white transition"><i data-lucide="phone" class="w-3.5 h-3.5 text-amber-400"></i> +91-8083637477</a>
+                <a href="https://wa.me/918083637477?text=Namaste%20Rohit%20Chair%20%26%20Sofa%20Repair%20Service,%20Mujhe%20furniture%20repair%20karwana%20hai." target="_blank" class="flex items-center gap-1 text-green-400 hover:text-green-300 transition"><i data-lucide="message-square" class="w-3.5 h-3.5"></i> WhatsApp Us</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-white shadow-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#home" onclick="navigate('home')" class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-slate-900 rounded-xl flex items-center justify-center text-amber-400 shadow-lg shadow-amber-500/10">
+                    <i data-lucide="armchair" class="w-7 h-7"></i>
+                </div>
+                <div>
+                    <span class="block text-lg sm:text-xl font-bold tracking-tight text-slate-900 leading-tight">ROHIT CHAIR & SOFA</span>
+                    <span class="block text-xs font-semibold text-amber-600 tracking-wider">REPAIR SERVICE • DELHI NCR</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden lg:flex items-center gap-7 font-medium text-sm text-slate-700">
+                <button onclick="navigate('home')" class="nav-link hover:text-amber-600 transition py-2" data-page="home">Home</button>
+                <div class="relative group">
+                    <button onclick="navigate('services')" class="nav-link hover:text-amber-600 transition py-2 flex items-center gap-1" data-page="services">Services <i data-lucide="chevron-down" class="w-4 h-4"></i></button>
+                    <div class="absolute top-full left-0 w-64 bg-white shadow-xl rounded-xl border border-gray-100 py-2 hidden group-hover:block transition-all z-50">
+                        <button onclick="navigate('service-sofa')" class="w-full text-left px-4 py-2 hover:bg-amber-50 hover:text-amber-700 text-sm">Sofa Repair & Upholstery</button>
+                        <button onclick="navigate('service-chair')" class="w-full text-left px-4 py-2 hover:bg-amber-50 hover:text-amber-700 text-sm">Chair & Office Chair Repair</button>
+                        <button onclick="navigate('service-foam')" class="w-full text-left px-4 py-2 hover:bg-amber-50 hover:text-amber-700 text-sm">Foam Replacement</button>
+                        <button onclick="navigate('service-cushion')" class="w-full text-left px-4 py-2 hover:bg-amber-50 hover:text-amber-700 text-sm">Cushion & Gadda Repair</button>
+                        <button onclick="navigate('service-polish')" class="w-full text-left px-4 py-2 hover:bg-amber-50 hover:text-amber-700 text-sm">Wooden Polish & Repair</button>
+                    </div>
+                </div>
+                <button onclick="navigate('gallery')" class="nav-link hover:text-amber-600 transition py-2" data-page="gallery">Gallery</button>
+                <button onclick="navigate('about')" class="nav-link hover:text-amber-600 transition py-2" data-page="about">About Us</button>
+                <button onclick="navigate('contact')" class="nav-link hover:text-amber-600 transition py-2" data-page="contact">Contact</button>
+                <button onclick="navigate('admin')" class="nav-link text-xs px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 font-semibold" data-page="admin">Admin Panel</button>
+            </nav>
+
+            <div class="hidden sm:flex items-center gap-3">
+                <a href="tel:+918083637477" class="p-2.5 rounded-xl bg-amber-50 text-amber-700 hover:bg-amber-100 transition" title="Call Now">
+                    <i data-lucide="phone-call" class="w-5 h-5"></i>
+                </a>
+                <button onclick="navigate('booking')" class="bg-slate-900 hover:bg-amber-600 text-white font-semibold px-5 py-2.5 rounded-xl shadow-lg shadow-slate-900/10 hover:shadow-amber-600/20 transition flex items-center gap-2 text-sm">
+                    <i data-lucide="calendar-check" class="w-4 h-4"></i> Book Service
+                </button>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl bg-gray-100 text-gray-700 hover:bg-gray-200">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-gray-200 px-6 py-4 space-y-3 shadow-xl">
+            <button onclick="navigate('home'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-gray-800">Home</button>
+            <button onclick="navigate('services'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-gray-800">All Services</button>
+            <button onclick="navigate('service-sofa'); toggleMobileMenu();" class="block w-full text-left py-2 pl-4 text-sm text-gray-600">↳ Sofa Repair</button>
+            <button onclick="navigate('service-chair'); toggleMobileMenu();" class="block w-full text-left py-2 pl-4 text-sm text-gray-600">↳ Chair Repair</button>
+            <button onclick="navigate('gallery'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-gray-800">Before & After Gallery</button>
+            <button onclick="navigate('about'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-gray-800">About Us</button>
+            <button onclick="navigate('contact'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-gray-800">Contact Us</button>
+            <button onclick="navigate('admin'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-slate-500 text-sm">Admin Dashboard</button>
+            <div class="pt-3 border-t border-gray-100 flex gap-2">
+                <a href="tel:+918083637477" class="flex-1 text-center py-2.5 bg-amber-500 text-white rounded-xl font-semibold text-sm">Call Now</a>
+                <button onclick="navigate('booking'); toggleMobileMenu();" class="flex-1 text-center py-2.5 bg-slate-900 text-white rounded-xl font-semibold text-sm">Book Service</button>
+            </div>
+        </div>
+    </header>
+
+    <main id="app-container">
+        <!-- Dynamic pages will be rendered here -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-white pt-16 pb-20 md:pb-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+            <div>
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 bg-amber-500 rounded-xl flex items-center justify-center text-slate-950 font-bold">
+                        <i data-lucide="armchair" class="w-6 h-6"></i>
+                    </div>
+                    <span class="font-bold text-lg leading-tight">ROHIT CHAIR & SOFA</span>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                    Professional furniture restoration, sofa repairing, chair fixing, foam replacement, and bespoke upholstery services across Delhi NCR.
+                </p>
+                <div class="flex gap-3">
+                    <a href="https://wa.me/918083637477" target="_blank" class="w-10 h-10 rounded-xl bg-green-600 text-white flex items-center justify-center hover:bg-green-500 transition shadow-lg shadow-green-600/20"><i data-lucide="message-square" class="w-5 h-5"></i></a>
+                    <a href="tel:+918083637477" class="w-10 h-10 rounded-xl bg-amber-500 text-slate-950 flex items-center justify-center hover:bg-amber-400 transition shadow-lg shadow-amber-500/20"><i data-lucide="phone" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-amber-400 font-semibold mb-4 text-base tracking-wider uppercase">Quick Links</h3>
+                <ul class="space-y-2.5 text-sm text-gray-300">
+                    <li><button onclick="navigate('home')" class="hover:text-amber-400 transition">Home</button></li>
+                    <li><button onclick="navigate('services')" class="hover:text-amber-400 transition">All Services</button></li>
+                    <li><button onclick="navigate('gallery')" class="hover:text-amber-400 transition">Before & After Gallery</button></li>
+                    <li><button onclick="navigate('about')" class="hover:text-amber-400 transition">About Us</button></li>
+                    <li><button onclick="navigate('contact')" class="hover:text-amber-400 transition">Contact Us</button></li>
+                    <li><button onclick="navigate('privacy')" class="hover:text-amber-400 transition">Privacy Policy</button></li>
+                    <li><button onclick="navigate('terms')" class="hover:text-amber-400 transition">Terms & Conditions</button></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-amber-400 font-semibold mb-4 text-base tracking-wider uppercase">Our Services</h3>
+                <ul class="space-y-2.5 text-sm text-gray-300">
+                    <li><button onclick="navigate('service-sofa')" class="hover:text-amber-400 transition">Sofa Repair & Upholstery</button></li>
+                    <li><button onclick="navigate('service-chair')" class="hover:text-amber-400 transition">Office & Dining Chair Repair</button></li>
+                    <li><button onclick="navigate('service-foam')" class="hover:text-amber-400 transition">Sofa & Mattress Foam Replacement</button></li>
+                    <li><button onclick="navigate('service-cushion')" class="hover:text-amber-400 transition">Cushion & Gadda Repair</button></li>
+                    <li><button onclick="navigate('service-polish')" class="hover:text-amber-400 transition">Wooden Furniture Polishing</button></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-amber-400 font-semibold mb-4 text-base tracking-wider uppercase">Service Areas</h3>
+                <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                    Providing prompt home-visit furniture repair services across:
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-slate-900 border border-slate-800 px-3 py-1 rounded-lg text-xs font-medium text-gray-300">Delhi</span>
+                    <span class="bg-slate-900 border border-slate-800 px-3 py-1 rounded-lg text-xs font-medium text-gray-300">Noida</span>
+                    <span class="bg-slate-900 border border-slate-800 px-3 py-1 rounded-lg text-xs font-medium text-gray-300">Ghaziabad</span>
+                    <span class="bg-slate-900 border border-slate-800 px-3 py-1 rounded-lg text-xs font-medium text-gray-300">Gurugram</span>
+                    <span class="bg-slate-900 border border-slate-800 px-3 py-1 rounded-lg text-xs font-medium text-gray-300">Faridabad</span>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-slate-900 text-center text-xs text-gray-500">
+            <p>&copy; 2026 Rohit Chair & Sofa Repair Service. All rights reserved. | Professional Furniture Restoration in Delhi NCR.</p>
+        </div>
+    </footer>
+
+    <!-- Fixed Mobile Bottom Action Bar -->
+    <div class="fixed bottom-0 left-0 right-0 z-40 bg-slate-950/95 backdrop-blur-md border-t border-slate-800 p-2.5 flex items-center justify-around gap-2 md:hidden shadow-2xl">
+        <a href="tel:+918083637477" class="flex-1 flex items-center justify-center gap-2 bg-amber-500 text-slate-950 font-bold py-2.5 px-3 rounded-xl text-xs shadow">
+            <i data-lucide="phone" class="w-4 h-4"></i> Call Now
+        </a>
+        <a href="https://wa.me/918083637477?text=Namaste%20Rohit%20Chair%20%26%20Sofa%20Repair%20Service,%20Mujhe%20furniture%20repair%20karwana%20hai." target="_blank" class="flex-1 flex items-center justify-center gap-2 bg-green-600 text-white font-bold py-2.5 px-3 rounded-xl text-xs shadow">
+            <i data-lucide="message-square" class="w-4 h-4"></i> WhatsApp
+        </a>
+        <button onclick="navigate('booking')" class="flex-1 flex items-center justify-center gap-2 bg-white text-slate-950 font-bold py-2.5 px-3 rounded-xl text-xs shadow">
+            <i data-lucide="calendar" class="w-4 h-4"></i> Book
+        </button>
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/918083637477?text=Namaste%20Rohit%20Chair%20%26%20Sofa%20Repair%20Service,%20Mujhe%20furniture%20repair%20karwana%20hai." target="_blank" class="fixed bottom-20 right-4 sm:bottom-8 sm:right-8 z-40 w-14 h-14 bg-green-600 text-white rounded-full flex items-center justify-center shadow-2xl hover:bg-green-500 hover:scale-110 transition-all group" title="Chat on WhatsApp">
+        <i data-lucide="message-circle" class="w-8 h-8"></i>
+        <span class="absolute right-16 bg-slate-900 text-white text-xs px-3 py-1.5 rounded-xl shadow-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap font-medium pointer-events-none">Chat on WhatsApp</span>
+    </a>
+
+    <script>
+        // Application State
+        let currentPage = 'home';
+        let bookings = JSON.parse(localStorage.getItem('rohit_bookings') || '[]');
+        let galleryItems = JSON.parse(localStorage.getItem('rohit_gallery') || JSON.stringify([
+            { id: 1, title: 'L-Shape Sofa Upholstery Renewal', category: 'Sofa Repair', beforeImg: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=80', afterImg: 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=600&q=80', desc: 'Complete foam replacement and premium velvet fabric change for 5-seater L-shape sofa.' },
+            { id: 2, title: 'Executive Office Revolving Chair Repair', category: 'Office Chair Repair', beforeImg: 'https://images.unsplash.com/photo-1580481077494-e3299ac2510e?auto=format&fit=crop&w=600&q=80', afterImg: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=600&q=80', desc: 'Hydraulic mechanism replacement, wheel caster fixing and rexine upholstery restoration.' },
+            { id: 3, title: 'Dining Table 6-Chair Cushion & Polish', category: 'Dining Chair Repair', beforeImg: 'https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=600&q=80', afterImg: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=80', desc: 'High-density foam filling, sturdy joint tightening and PU wood polishing.' }
+        ]));
+        
+        let servicesData = [
+            { id: 'service-sofa', title: 'Sofa Repair & Upholstery', icon: 'sofa', desc: 'Fabric change, leatherette renewal, frame fixing, and deep spring repair for 3-seater, 5-seater, and L-shape sofas.' },
+            { id: 'service-chair', title: 'Office & Dining Chair Repair', icon: 'armchair', desc: 'Hydraulic repair for revolving chairs, wheel replacement, mesh fixing, and dining chair cushioning.' },
+            { id: 'service-foam', title: 'Foam Replacement', icon: 'layers', desc: 'Replace sagging, soft, or worn-out foam with high-density ISI-marked Duro/Sleepwell grade foam for ultimate comfort.' },
+            { id: 'service-cushion', title: 'Cushion & Gadda Repair', icon: 'bed', desc: 'Customized mattress (gadda) refilling, sofa cushion reshaping, and premium quilted cover stitching.' },
+            { id: 'service-polish', title: 'Wooden Furniture Polishing', icon: 'hammer', desc: 'PU polish, melamine finish, scratch removal, and termite treatment for wooden sofa frames, beds, and dining tables.' }
+        ];
+
+        // Navigation Controller
+        function navigate(page, params = {}) {
+            currentPage = page;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            renderPage(page, params);
+            updateActiveNav(page);
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }
+
+        function updateActiveNav(page) {
+            document.querySelectorAll('.nav-link').forEach(el => {
+                if (el.getAttribute('data-page') === page) {
+                    el.classList.add('text-amber-600', 'font-bold');
+                } else {
+                    el.classList.remove('text-amber-600', 'font-bold');
+                }
+            });
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Render Page Switcher
+        function renderPage(page, params) {
+            const container = document.getElementById('app-container');
+            switch(page) {
+                case 'home':
+                    container.innerHTML = getHomePageHTML();
+                    break;
+                case 'services':
+                    container.innerHTML = getServicesPageHTML();
+                    break;
+                case 'service-sofa':
+                case 'service-chair':
+                case 'service-foam':
+                case 'service-cushion':
+                case 'service-polish':
+                    container.innerHTML = getSingleServiceHTML(page);
+                    break;
+                case 'gallery':
+                    container.innerHTML = getGalleryPageHTML();
+                    break;
+                case 'about':
+                    container.innerHTML = getAboutPageHTML();
+                    break;
+                case 'contact':
+                    container.innerHTML = getContactPageHTML();
+                    break;
+                case 'booking':
+                    container.innerHTML = getBookingPageHTML();
+                    break;
+                case 'booking-confirmation':
+                    container.innerHTML = getBookingConfirmationHTML(params);
+                    break;
+                case 'admin':
+                    container.innerHTML = getAdminLoginPageHTML();
+                    break;
+                case 'admin-dashboard':
+                    container.innerHTML = getAdminDashboardHTML();
+                    break;
+                case 'privacy':
+                    container.innerHTML = getPrivacyPageHTML();
+                    break;
+                case 'terms':
+                    container.innerHTML = getTermsPageHTML();
+                    break;
+                default:
+                    container.innerHTML = get404PageHTML();
+            }
+        }
+
+        function getHomePageHTML() {
+            return `
+            <!-- Hero Section -->
+            <section class="relative bg-slate-950 text-white overflow-hidden py-20 lg:py-28">
+                <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#d97706_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <div class="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 text-amber-400 px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase">
+                            <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span> Trusted Sofa & Chair Experts in Delhi NCR
+                        </div>
+                        <h1 class="hindi-title text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-white">
+                            पुराने सोफे और कुर्सियों को बनाएं नए जैसा!
+                        </h1>
+                        <p class="text-gray-300 text-lg leading-relaxed">
+                            Delhi NCR में भरोसेमंद Sofa & Chair Repair Service. घर बैठे सर्विस बुक करें और मुफ्त शुरुआती सलाह पाएं। Upholstery, foam replacement, and wooden polishing at your doorstep.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                            <a href="https://wa.me/918083637477?text=Namaste%20Rohit%20Chair%20%26%20Sofa%20Repair%20Service,%20Mujhe%20furniture%20repair%20karwana%20hai." target="_blank" class="bg-green-600 hover:bg-green-500 text-white font-semibold px-8 py-4 rounded-xl shadow-xl shadow-green-600/20 flex items-center justify-center gap-3 transition">
+                                <i data-lucide="message-square" class="w-5 h-5"></i> WhatsApp पर संपर्क करें
+                            </a>
+                            <a href="tel:+918083637477" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-8 py-4 rounded-xl shadow-xl shadow-amber-500/20 flex items-center justify-center gap-3 transition">
+                                <i data-lucide="phone-call" class="w-5 h-5"></i> अभी कॉल करें: 8083637477
+                            </a>
+                        </div>
+                        <div class="flex items-center gap-6 pt-4 text-sm text-gray-400 border-t border-slate-800">
+                            <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-amber-400"><span>Free Home Visit & Quote</span></i></div>
+                            <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-amber-400"><span>Quality Materials</span></i></div>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -inset-2 bg-gradient-to-r from-amber-500 to-amber-600 rounded-3xl blur-xl opacity-30"></div>
+                        <div class="relative bg-slate-900 border border-slate-800 p-4 sm:p-6 rounded-3xl shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80" alt="Sofa Repair Service Delhi NCR" class="rounded-2xl w-full h-80 object-cover mb-4">
+                            <div class="flex items-center justify-between bg-slate-950 p-4 rounded-2xl border border-slate-800">
+                                <div>
+                                    <span class="block text-xs text-gray-400 font-medium">Direct helpline</span>
+                                    <span class="text-lg font-bold text-amber-400">+91 80836 37477</span>
+                                </div>
+                                <button onclick="navigate('booking')" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-semibold px-4 py-2.5 rounded-xl text-sm transition">Book Inspection</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Service Areas Bar -->
+            <section class="bg-amber-500 py-4 px-4 text-slate-950 font-medium text-center">
+                <div class="max-w-7xl mx-auto flex flex-wrap justify-center items-center gap-6 text-sm sm:text-base font-semibold">
+                    <span class="flex items-center gap-1.5"><i data-lucide="map-pin" class="w-4 h-4"></i> Service Areas:</span>
+                    <span class="bg-slate-950 text-white px-3 py-1 rounded-lg text-xs">Delhi</span>
+                    <span class="bg-slate-950 text-white px-3 py-1 rounded-lg text-xs">Noida</span>
+                    <span class="bg-slate-950 text-white px-3 py-1 rounded-lg text-xs">Ghaziabad</span>
+                    <span class="bg-slate-950 text-white px-3 py-1 rounded-lg text-xs">Gurugram</span>
+                    <span class="bg-slate-950 text-white px-3 py-1 rounded-lg text-xs">Faridabad</span>
+                </div>
+            </section>
+
+            <!-- Services Grid -->
+            <section class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-2xl mx-auto mb-16">
+                        <span class="text-amber-600 font-semibold text-sm tracking-widest uppercase">Expert Solutions</span>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mt-2 mb-4">Our Professional Services</h2>
+                        <p class="text-gray-600">Give your old, worn-out furniture a stunning brand-new look with expert craftsmanship.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        ${servicesData.map(s => `
+                            <div class="bg-gray-50 border border-gray-100 p-8 rounded-3xl hover:shadow-xl transition-all group flex flex-col justify-between">
+                                <div>
+                                    <div class="w-14 h-14 bg-amber-100 text-amber-700 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-amber-600 group-hover:text-white transition-all shadow-inner">
+                                        <i data-lucide="${s.icon}" class="w-7 h-7"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-slate-900 mb-3">${s.title}</h3>
+                                    <p class="text-gray-600 text-sm leading-relaxed mb-6">${s.desc}</p>
+                                </div>
+                                <div class="flex items-center justify-between pt-4 border-t border-gray-200">
+                                    <button onclick="navigate('${s.id}')" class="text-amber-600 font-semibold text-sm flex items-center gap-1 hover:text-amber-700">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+                                    <button onclick="navigate('booking')" class="bg-slate-900 text-white px-3 py-1.5 rounded-lg text-xs font-semibold hover:bg-amber-600 transition">Book Now</button>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            </section>
+
+            <!-- Why Choose Us -->
+            <section class="py-20 bg-slate-900 text-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-2xl mx-auto mb-16">
+                        <span class="text-amber-400 font-semibold text-sm tracking-widest uppercase">Why Choose Rohit Repair</span>
+                        <h2 class="text-3xl sm:text-4xl font-bold mt-2 mb-4">The Trusted Choice in Delhi NCR</h2>
+                        <p class="text-gray-400">Quality workmanship, transparent pricing, and doorstep convenience.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="bg-slate-950 border border-slate-800 p-8 rounded-3xl">
+                            <div class="w-12 h-12 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center mb-6"><i data-lucide="shield-check" class="w-6 h-6"></i></div>
+                            <h3 class="text-lg font-bold mb-2 text-white">Experienced Workmanship</h3>
+                            <p class="text-gray-400 text-sm">Skilled artisans specialized in traditional and modern sofa framing, upholstery stitching, and hydraulic chair repair.</p>
+                        </div>
+                        <div class="bg-slate-950 border border-slate-800 p-8 rounded-3xl">
+                            <div class="w-12 h-12 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center mb-6"><i data-lucide="home" class="w-6 h-6"></i></div>
+                            <h3 class="text-lg font-bold mb-2 text-white">Convenient Home Service</h3>
+                            <p class="text-gray-400 text-sm">On-site inspection and minor repairs at your doorstep across Delhi, Noida, Ghaziabad, Gurugram, and Faridabad.</p>
+                        </div>
+                        <div class="bg-slate-950 border border-slate-800 p-8 rounded-3xl">
+                            <div class="w-12 h-12 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center mb-6"><i data-lucide="badge-percent" class="w-6 h-6"></i></div>
+                            <h3 class="text-lg font-bold mb-2 text-white">Transparent Estimates</h3>
+                            <p class="text-gray-400 text-sm">Clear pricing based on materials, foam quality, and furniture size with no hidden charges.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step-by-Step Service Process -->
+            <section class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-2xl mx-auto mb-16">
+                        <span class="text-amber-600 font-semibold text-sm tracking-widest uppercase">Easy Process</span>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mt-2 mb-4">How It Works</h2>
+                        <p class="text-gray-600">Get your furniture repaired in 5 simple steps.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+                        <div class="bg-gray-50 border border-gray-100 p-6 rounded-2xl text-center">
+                            <div class="w-10 h-10 bg-amber-500 text-slate-950 font-bold rounded-xl flex items-center justify-center mx-auto mb-4">1</div>
+                            <h3 class="font-bold text-sm text-slate-900 mb-1">Contact Us</h3>
+                            <p class="text-xs text-gray-500">Call or message via WhatsApp.</p>
+                        </div>
+                        <div class="bg-gray-50 border border-gray-100 p-6 rounded-2xl text-center">
+                            <div class="w-10 h-10 bg-amber-500 text-slate-950 font-bold rounded-xl flex items-center justify-center mx-auto mb-4">2</div>
+                            <h3 class="font-bold text-sm text-slate-900 mb-1">Share Photos</h3>
+                            <p class="text-xs text-gray-500">Send furniture photos on WhatsApp.</p>
+                        </div>
+                        <div class="bg-gray-50 border border-gray-100 p-6 rounded-2xl text-center">
+                            <div class="w-10 h-10 bg-amber-500 text-slate-950 font-bold rounded-xl flex items-center justify-center mx-auto mb-4">3</div>
+                            <h3 class="font-bold text-sm text-slate-900 mb-1">Get Estimate</h3>
+                            <p class="text-xs text-gray-500">Receive an initial cost estimate.</p>
+                        </div>
+                        <div class="bg-gray-50 border border-gray-100 p-6 rounded-2xl text-center">
+                            <div class="w-10 h-10 bg-amber-500 text-slate-950 font-bold rounded-xl flex items-center justify-center mx-auto mb-4">4</div>
+                            <h3 class="font-bold text-sm text-slate-900 mb-1">Confirm Service</h3>
+                            <p class="text-xs text-gray-500">Book date and time slot.</p>
+                        </div>
+                        <div class="bg-gray-50 border border-gray-100 p-6 rounded-2xl text-center">
+                            <div class="w-10 h-10 bg-amber-500 text-slate-950 font-bold rounded-xl flex items-center justify-center mx-auto mb-4">5</div>
+                            <h3 class="font-bold text-sm text-slate-900 mb-1">Expert Repair</h3>
+                            <p class="text-xs text-gray-500">Professional doorstep repair.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            `;
+        }
+
+        function getServicesPageHTML() {
+            return `
+            <div class="bg-slate-950 text-white py-16 px-4 text-center">
+                <h1 class="text-3xl sm:text-4xl font-bold mb-4">Our Professional Services</h1>
+                <p class="text-gray-400 max-w-2xl mx-auto">Comprehensive sofa repair, chair fixing, upholstery renewal, and wooden polishing services in Delhi NCR.</p>
+            </div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    ${servicesData.map(s => `
+                        <div class="bg-white border border-gray-200 p-8 rounded-3xl shadow-md hover:shadow-xl transition flex flex-col justify-between">
+                            <div>
+                                <div class="w-14 h-14 bg-amber-100 text-amber-700 rounded-2xl flex items-center justify-center mb-6">
+                                    <i data-lucide="${s.icon}" class="w-7 h-7"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-slate-900 mb-3">${s.title}</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed mb-6">${s.desc}</p>
+                            </div>
+                            <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                                <button onclick="navigate('${s.id}')" class="text-amber-600 font-semibold text-sm hover:underline flex items-center gap-1">View Details <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+                                <button onclick="navigate('booking')" class="bg-slate-900 text-white px-4 py-2 rounded-xl text-xs font-semibold hover:bg-amber-600 transition">Book Now</button>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+            `;
+        }
+
+        function getSingleServiceHTML(serviceId) {
+            const map = {
+                'service-sofa': { title: 'Sofa Repair & Upholstery', icon: 'sofa', desc: 'Fabric sofa repair, leatherette sofa repair, sofa upholstery replacement, sofa foam replacement, cushion repair, and wooden frame strengthening.' },
+                'service-chair': { title: 'Office & Dining Chair Repair', icon: 'armchair', desc: 'Office revolving chair hydraulic repair, dining chair polishing, mesh replacement, and caster wheel fixing.' },
+                'service-foam': { title: 'Foam Replacement Service', icon: 'layers', desc: 'High-density Duro and Sleepwell foam replacement for sagging sofas, chairs, and mattresses.' },
+                'service-cushion': { title: 'Cushion & Gadda Repair', icon: 'bed', desc: 'Custom mattress repair, cushion reshaping, zipper replacement, and luxury cover stitching.' },
+                'service-polish': { title: 'Wooden Furniture Polishing', icon: 'hammer', desc: 'PU polish, melamine finish, scratch removal, and wood polishing for sofas, beds, and tables.' }
+            };
+            const s = map[serviceId] || map['service-sofa'];
+
+            return `
+            <div class="bg-slate-950 text-white py-16 px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <div class="w-16 h-16 bg-amber-500 text-slate-950 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="${s.icon}" class="w-8 h-8"></i>
+                    </div>
+                    <h1 class="text-3xl sm:text-4xl font-bold mb-4">${s.title}</h1>
+                    <p class="text-gray-400 text-lg">${s.desc}</p>
+                </div>
+            </div>
+            <div class="max-w-4xl mx-auto px-4 py-16 space-y-10">
+                <div class="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm space-y-6">
+                    <h2 class="text-2xl font-bold text-slate-900">Service Overview</h2>
+                    <p class="text-gray-600 leading-relaxed">
+                        At Rohit Chair & Sofa Repair Service, we provide top-tier workmanship for ${s.title.toLowerCase()}. Whether your furniture has structural damage, worn-out fabric, or sagging foam, our skilled technicians visit your location across Delhi NCR to restore it to pristine condition.
+                    </p>
+                    <div class="bg-amber-50 border border-amber-200 p-6 rounded-2xl">
+                        <h3 class="font-bold text-amber-900 mb-2">Pricing Note:</h3>
+                        <p class="text-amber-800 text-sm">Final prices depend on the furniture condition, fabric grade, foam density, dimensions, and repair requirements. Contact us for a free estimate!</p>
+                    </div>
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <button onclick="navigate('booking')" class="bg-slate-900 hover:bg-amber-600 text-white font-semibold px-6 py-3 rounded-xl transition flex items-center gap-2">
+                            <i data-lucide="calendar-check" class="w-5 h-5"></i> Book Service Now
+                        </button>
+                        <a href="https://wa.me/918083637477?text=Namaste%20Rohit%20Chair%20%26%20Sofa%20Repair,%20I%20need%20details%20for%20${encodeURIComponent(s.title)}" target="_blank" class="bg-green-600 hover:bg-green-500 text-white font-semibold px-6 py-3 rounded-xl transition flex items-center gap-2">
+                            <i data-lucide="message-square" class="w-5 h-5"></i> WhatsApp Inquiry
+                        </a>
+                        <a href="tel:+918083637477" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-6 py-3 rounded-xl transition flex items-center gap-2">
+                            <i data-lucide="phone" class="w-5 h-5"></i> Call Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+            `;
+        }
+
+        function getGalleryPageHTML() {
+            return `
+            <div class="bg-slate-950 text-white py-16 px-4 text-center">
+                <h1 class="text-3xl sm:text-4xl font-bold mb-4">Before & After Gallery</h1>
+                <p class="text-gray-400 max-w-2xl mx-auto">Explore our recent furniture restoration and upholstery transformation projects in Delhi NCR.</p>
+            </div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    ${galleryItems.map(item => `
+                        <div class="bg-white border border-gray-200 rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition">
+                            <div class="grid grid-cols-2 gap-1 bg-gray-100">
+                                <div class="relative">
+                                    <span class="absolute top-2 left-2 bg-slate-900/80 text-white text-[10px] font-bold px-2 py-1 rounded">BEFORE</span>
+                                    <img src="${item.beforeImg}" alt="Before restoration" class="w-full h-48 object-cover">
+                                </div>
+                                <div class="relative">
+                                    <span class="absolute top-2 left-2 bg-amber-600 text-white text-[10px] font-bold px-2 py-1 rounded">AFTER</span>
+                                    <img src="${item.afterImg}" alt="After restoration" class="w-full h-48 object-cover">
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <span class="text-xs font-semibold text-amber-600 uppercase tracking-wider">${item.category}</span>
+                                <h3 class="text-lg font-bold text-slate-900 mt-1 mb-2">${item.title}</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">${item.desc}</p>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+            `;
+        }
+
+        function getAboutPageHTML() {
+            return `
+            <div class="bg-slate-950 text-white py-16 px-4 text-center">
+                <h1 class="text-3xl sm:text-4xl font-bold mb-4">About Rohit Chair & Sofa Repair Service</h1>
+                <p class="text-gray-400 max-w-2xl mx-auto">Your trusted neighborhood furniture restoration experts across Delhi NCR.</p>
+            </div>
+            <div class="max-w-4xl mx-auto px-4 py-16 space-y-12">
+                <div class="bg-white p-8 sm:p-12 rounded-3xl border border-gray-200 shadow-sm space-y-6">
+                    <h2 class="text-2xl font-bold text-slate-900">Our Professional Journey</h2>
+                    <p class="text-gray-600 leading-relaxed">
+                        Rohit Chair & Sofa Repair Service has been delivering dependable furniture repair, cushion refilling, and upholstery replacement solutions across Delhi, Noida, Ghaziabad, Gurugram, and Faridabad. We believe that well-crafted furniture deserves a second life. Instead of discarding old, sagging sofas or broken office chairs, our expert craftsmen restore them to peak comfort and elegance.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+                        <div class="bg-amber-50 p-6 rounded-2xl border border-amber-200">
+                            <h3 class="font-bold text-amber-900 mb-2">Doorstep Convenience</h3>
+                            <p class="text-amber-800 text-sm">We bring our tools and expertise directly to your home or office for hassle-free repairs.</p>
+                        </div>
+                        <div class="bg-slate-900 text-white p-6 rounded-2xl">
+                            <h3 class="font-bold text-amber-400 mb-2">Quality Materials</h3>
+                            <p class="text-gray-300 text-sm">We use premium high-density foam, durable fabrics, sturdy springs, and quality wood polish.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `;
+        }
+
+        function getContactPageHTML() {
+            return `
+            <div class="bg-slate-950 text-white py-16 px-4 text-center">
+                <h1 class="text-3xl sm:text-4xl font-bold mb-4">Contact Us</h1>
+                <p class="text-gray-400 max-w-2xl mx-auto">Get in touch with Rohit Chair & Sofa Repair Service for fast quotes and home visits.</p>
+            </div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="bg-white p-8 sm:p-12 rounded-3xl border border-gray-200 shadow-sm space-y-8">
+                    <h2 class="text-2xl font-bold text-slate-900">Get In Touch</h2>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-amber-100 text-amber-700 rounded-2xl flex items-center justify-center shrink-0"><i data-lucide="phone" class="w-6 h-6"></i></div>
+                            <div>
+                                <h3 class="font-bold text-slate-900">Phone Number</h3>
+                                <a href="tel:+918083637477" class="text-amber-600 font-semibold hover:underline">+91 80836 37477</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-green-100 text-green-700 rounded-2xl flex items-center justify-center shrink-0"><i data-lucide="message-square" class="w-6 h-6"></i></div>
+                            <div>
+                                <h3 class="font-bold text-slate-900">WhatsApp Support</h3>
+                                <a href="https://wa.me/918083637477?text=Namaste%20Rohit%20Repair,%20I%20have%20an%20inquiry." target="_blank" class="text-green-600 font-semibold hover:underline">+91 80836 37477</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-slate-100 text-slate-700 rounded-2xl flex items-center justify-center shrink-0"><i data-lucide="map-pin" class="w-6 h-6"></i></div>
+                            <div>
+                                <h3 class="font-bold text-slate-900">Service Coverage</h3>
+                                <p class="text-gray-600 text-sm">Delhi, Noida, Ghaziabad, Gurugram, Faridabad & NCR</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-900 text-white p-8 sm:p-12 rounded-3xl shadow-xl flex flex-col justify-between">
+                    <div>
+                        <h2 class="text-2xl font-bold mb-4">Quick WhatsApp Inquiry</h2>
+                        <p class="text-gray-400 text-sm mb-6">Send us photos of your furniture directly on WhatsApp for an instant quick estimate.</p>
+                    </div>
+                    <a href="https://wa.me/918083637477?text=Namaste%20Rohit%20Chair%20%26%20Sofa%20Repair,%20I%20want%20to%20send%20photos%20for%20repair%20estimate." target="_blank" class="w-full bg-green-600 hover:bg-green-500 text-white font-bold py-4 rounded-xl shadow-lg text-center flex items-center justify-center gap-3 transition">
+                        <i data-lucide="message-square" class="w-6 h-6"></i> Open WhatsApp Chat
+                    </a>
+                </div>
+            </div>
+            `;
+        }
+
+        function getBookingPageHTML() {
+            return `
+            <div class="bg-slate-950 text-white py-16 px-4 text-center">
+                <h1 class="text-3xl sm:text-4xl font-bold mb-4">Book Furniture Repair Service</h1>
+                <p class="text-gray-400 max-w-2xl mx-auto">Fill out the form below to schedule a doorstep inspection or estimate.</p>
+            </div>
+            <div class="max-w-3xl mx-auto px-4 py-16">
+                <form id="booking-form" onsubmit="handleBookingSubmit(event)" class="bg-white p-8 sm:p-12 rounded-3xl border border-gray-200 shadow-xl space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Customer Name *</label>
+                            <input type="text" id="b-name" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-amber-500 bg-gray-50" placeholder="Enter your full name">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Phone Number *</label>
+                            <input type="tel" id="b-phone" required pattern="[0-9]{10}" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-amber-500 bg-gray-50" placeholder="10-digit mobile number">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Service Type *</label>
+                            <select id="b-service" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-amber-500 bg-gray-50">
+                                <option value="Sofa Repair & Upholstery">Sofa Repair & Upholstery</option>
+                                <option value="Office & Dining Chair Repair">Office & Dining Chair Repair</option>
+                                <option value="Foam Replacement">Foam Replacement</option>
+                                <option value="Cushion & Gadda Repair">Cushion & Gadda Repair</option>
+                                <option value="Wooden Furniture Polishing">Wooden Furniture Polishing</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Furniture Type *</label>
+                            <input type="text" id="b-furniture" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-amber-500 bg-gray-50" placeholder="e.g. 5-Seater Sofa / Revolving Chair">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">City *</label>
+                            <select id="b-city" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-amber-500 bg-gray-50">
+                                <option value="Delhi">Delhi</option>
+                                <option value="Noida">Noida</option>
+                                <option value="Ghaziabad">Ghaziabad</option>
+                                <option value="Gurugram">Gurugram</option>
+                                <option value="Faridabad">Faridabad</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Area / Locality *</label>
+                            <input type="text" id="b-area" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-amber-500 bg-gray-50" placeholder="e.g. Dwarka / Sector 62">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Preferred Date *</label>
+                            <input type="date" id="b-date" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-amber-500 bg-gray-50">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Preferred Time Slot *</label>
+                            <select id="b-time" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-amber-500 bg-gray-50">
+                                <option value="Morning (9 AM - 12 PM)">Morning (9 AM - 12 PM)</option>
+                                <option value="Afternoon (12 PM - 4 PM)">Afternoon (12 PM - 4 PM)</option>
+                                <option value="Evening (4 PM - 7 PM)">Evening (4 PM - 7 PM)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Problem Description / Notes</label>
+                        <textarea id="b-desc" rows="3" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-amber-500 bg-gray-50" placeholder="Describe the damage, fabric preference, or foam condition..."></textarea>
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <input type="checkbox" id="b-consent" required class="w-5 h-5 accent-amber-600 rounded">
+                        <label for="b-consent" class="text-xs text-gray-600">I agree to the <button type="button" onclick="navigate('privacy')" class="text-amber-600 underline">Privacy Policy</button> and consent to be contacted regarding this service request.</label>
+                    </div>
+
+                    <button type="submit" class="w-full bg-slate-900 hover:bg-amber-600 text-white font-bold py-4 rounded-xl shadow-xl transition flex items-center justify-center gap-3 text-base">
+                        <i data-lucide="check-circle" class="w-5 h-5"></i> Submit Booking Request
+                    </button>
+                </form>
+            </div>
+            `;
+        }
+
+        function handleBookingSubmit(e) {
+            e.preventDefault();
+            const refNo = 'ROHIT-' + Math.floor(100000 + Math.random() * 900000);
+            const booking = {
+                refNo,
+                name: document.getElementById('b-name').value,
+                phone: document.getElementById('b-phone').value,
+                service: document.getElementById('b-service').value,
+                furniture: document.getElementById('b-furniture').value,
+                city: document.getElementById('b-city').value,
+                area: document.getElementById('b-area').value,
+                date: document.getElementById('b-date').value,
+                time: document.getElementById('b-time').value,
+                desc: document.getElementById('b-desc').value,
+                status: 'New',
+                createdAt: new Date().toISOString()
+            };
+
+            bookings.unshift(booking);
+            localStorage.setItem('rohit_bookings', JSON.stringify(bookings));
+            navigate('booking-confirmation', booking);
+        }
+
+        function getBookingConfirmationHTML(booking) {
+            if (!booking || !booking.refNo) {
+                return `<div class="py-20 text-center"><h2 class="text-2xl font-bold mb-4">No Booking Found</h2><button onclick="navigate('booking')" class="bg-amber-500 text-slate-950 font-bold px-6 py-3 rounded-xl">Book Now</button></div>`;
+            }
+
+            const waText = encodeURIComponent(`Namaste Rohit Chair & Sofa Repair Service,
+Mujhe furniture repair karwana hai.
+
+Booking Ref: ${booking.refNo}
+Name: ${booking.name}
+Phone: ${booking.phone}
+Service: ${booking.service}
+Furniture: ${booking.furniture}
+Location: ${booking.area}, ${booking.city}
+Preferred Date: ${booking.date} (${booking.time})
+
+Please guide me regarding the estimated cost.`);
+
+            return `
+            <div class="max-w-3xl mx-auto px-4 py-16">
+                <div class="bg-white p-8 sm:p-12 rounded-3xl border border-gray-200 shadow-2xl text-center space-y-6">
+                    <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto shadow-inner">
+                        <i data-lucide="check-circle" class="w-10 h-10"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">Booking Successful</span>
+                        <h1 class="text-3xl font-bold text-slate-900 mt-1">Thank You, ${booking.name}!</h1>
+                        <p class="text-gray-600 text-sm mt-2">Your service request has been registered successfully.</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-gray-200 text-left space-y-2">
+                        <div class="flex justify-between text-sm"><span class="text-gray-500">Booking Reference:</span> <span class="font-bold text-slate-900">${booking.refNo}</span></div>
+                        <div class="flex justify-between text-sm"><span class="text-gray-500">Service:</span> <span class="font-semibold text-slate-900">${booking.service}</span></div>
+                        <div class="flex justify-between text-sm"><span class="text-gray-500">Furniture:</span> <span class="font-semibold text-slate-900">${booking.furniture}</span></div>
+                        <div class="flex justify-between text-sm"><span class="text-gray-500">Location:</span> <span class="font-semibold text-slate-900">${booking.area}, ${booking.city}</span></div>
+                        <div class="flex justify-between text-sm"><span class="text-gray-500">Preferred Date:</span> <span class="font-semibold text-slate-900">${booking.date}</span></div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                        <a href="https://wa.me/918083637477?text=${waText}" target="_blank" class="flex-1 bg-green-600 hover:bg-green-500 text-white font-bold py-4 rounded-xl shadow-lg flex items-center justify-center gap-2 transition">
+                            <i data-lucide="message-square" class="w-5 h-5"><span>Send Details on WhatsApp</span></i>
+                        </a>
+                        <a href="tel:+918083637477" class="flex-1 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-4 rounded-xl shadow-lg flex items-center justify-center gap-2 transition">
+                            <i data-lucide="phone" class="w-5 h-5"><span>Call Now</span></i>
+                        </a>
+                    </div>
+                    <button onclick="navigate('home')" class="text-sm font-semibold text-gray-500 hover:text-slate-900 underline block mx-auto pt-2">Return to Homepage</button>
+                </div>
+            </div>
+            `;
+        }
+
+        // Admin Login & Dashboard
+        let isAdminLoggedIn = false;
+
+        function getAdminLoginPageHTML() {
+            if (isAdminLoggedIn) return getAdminDashboardHTML();
+            return `
+            <div class="max-w-md mx-auto px-4 py-20">
+                <div class="bg-white p-8 rounded-3xl border border-gray-200 shadow-2xl space-y-6">
+                    <div class="text-center">
+                        <div class="w-14 h-14 bg-slate-900 text-amber-400 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <i data-lucide="shield-lock" class="w-7 h-7"></i>
+                        </div>
+                        <h1 class="text-2xl font-bold text-slate-900">Admin Login</h1>
+                        <p class="text-gray-500 text-xs mt-1">Authorized administrators only</p>
+                    </div>
+                    <form onsubmit="handleAdminLogin(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">Username</label>
+                            <input type="text" id="admin-user" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-amber-500 bg-gray-50 text-sm" placeholder="admin">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">Password</label>
+                            <input type="password" id="admin-pass" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-amber-500 bg-gray-50 text-sm" placeholder="rohit2026">
+                        </div>
+                        <button type="submit" class="w-full bg-slate-900 hover:bg-amber-600 text-white font-bold py-3 rounded-xl transition text-sm shadow">Login to Dashboard</button>
+                    </form>
+                    <p class="text-[11px] text-gray-400 text-center">Default Demo credentials: <b>admin</b> / <b>rohit2026</b></p>
+                </div>
+            </div>
+            `;
+        }
+
+        function handleAdminLogin(e) {
+            e.preventDefault();
+            const u = document.getElementById('admin-user').value;
+            const p = document.getElementById('admin-pass').value;
+            if (u === 'admin' && p === 'rohit2026') {
+                isAdminLoggedIn = true;
+                navigate('admin-dashboard');
+            } else {
+                alert('Invalid credentials. Use admin / rohit2026');
+            }
+        }
+
+        function getAdminDashboardHTML() {
+            const total = bookings.length;
+            const pending = bookings.filter(b => b.status === 'New').length;
+            const completed = bookings.filter(b => b.status === 'Completed').length;
+
+            return `
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-slate-900 text-white p-6 sm:p-8 rounded-3xl shadow-xl">
+                    <div>
+                        <h1 class="text-2xl sm:text-3xl font-bold">Admin Dashboard</h1>
+                        <p class="text-gray-400 text-sm">Manage bookings and customer inquiries for Rohit Chair & Sofa Repair Service</p>
+                    </div>
+                    <button onclick="isAdminLoggedIn = false; navigate('home');" class="bg-red-600 hover:bg-red-500 text-white px-4 py-2 rounded-xl text-xs font-semibold transition">Logout</button>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm flex items-center justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-gray-400 uppercase">Total Bookings</span>
+                            <h2 class="text-3xl font-bold text-slate-900 mt-1">${total}</h2>
+                        </div>
+                        <div class="w-12 h-12 bg-amber-100 text-amber-700 rounded-xl flex items-center justify-center"><i data-lucide="clipboard-list" class="w-6 h-6"></i></div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm flex items-center justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-gray-400 uppercase">New / Pending</span>
+                            <h2 class="text-3xl font-bold text-blue-600 mt-1">${pending}</h2>
+                        </div>
+                        <div class="w-12 h-12 bg-blue-100 text-blue-700 rounded-xl flex items-center justify-center"><i data-lucide="clock" class="w-6 h-6"></i></div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm flex items-center justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-gray-400 uppercase">Completed</span>
+                            <h2 class="text-3xl font-bold text-green-600 mt-1">${completed}</h2>
+                        </div>
+                        <div class="w-12 h-12 bg-green-100 text-green-700 rounded-xl flex items-center justify-center"><i data-lucide="check-circle" class="w-6 h-6"></i></div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm space-y-6">
+                    <h2 class="text-xl font-bold text-slate-900">Recent Service Bookings</h2>
+                    ${bookings.length === 0 ? '<p class="text-gray-500 text-sm">No bookings received yet.</p>' : `
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-sm text-gray-600">
+                                <thead class="bg-gray-50 text-slate-700 uppercase text-xs">
+                                    <tr>
+                                        <th class="p-3 rounded-l-xl">Ref & Date</th>
+                                        <th class="p-3">Customer</th>
+                                        <th class="p-3">Service & Furniture</th>
+                                        <th class="p-3">Location</th>
+                                        <th class="p-3">Status</th>
+                                        <th class="p-3 rounded-r-xl">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-100">
+                                    ${bookings.map((b, idx) => `
+                                        <tr class="hover:bg-gray-50">
+                                            <td class="p-3 font-semibold text-slate-900">${b.refNo}<br><span class="text-xs text-gray-400 font-normal">${b.date}</span></td>
+                                            <td class="p-3 font-medium text-slate-900">${b.name}<br><a href="tel:${b.phone}" class="text-amber-600 text-xs">${b.phone}</a></td>
+                                            <td class="p-3">${b.service}<br><span class="text-xs text-gray-500">${b.furniture}</span></td>
+                                            <td class="p-3">${b.area}, ${b.city}</td>
+                                            <td class="p-3"><span class="px-2.5 py-1 rounded-full text-xs font-bold ${b.status === 'Completed' ? 'bg-green-100 text-green-700' : 'bg-amber-100 text-amber-700'}">${b.status}</span></td>
+                                            <td class="p-3">
+                                                <select onchange="updateBookingStatus(${idx}, this.value)" class="px-2 py-1 bg-gray-100 text-xs rounded border border-gray-200 font-medium">
+                                                    <option value="New" ${b.status === 'New' ? 'selected' : ''}>New</option>
+                                                    <option value="Contacted" ${b.status === 'Contacted' ? 'selected' : ''}>Contacted</option>
+                                                    <option value="Confirmed" ${b.status === 'Confirmed' ? 'selected' : ''}>Confirmed</option>
+                                                    <option value="Completed" ${b.status === 'Completed' ? 'selected' : ''}>Completed</option>
+                                                    <option value="Cancelled" ${b.status === 'Cancelled' ? 'selected' : ''}>Cancelled</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                    `}
+                </div>
+            </div>
+            `;
+        }
+
+        function updateBookingStatus(index, newStatus) {
+            bookings[index].status = newStatus;
+            localStorage.setItem('rohit_bookings', JSON.stringify(bookings));
+            renderPage('admin-dashboard');
+        }
+
+        function getPrivacyPageHTML() {
+            return `
+            <div class="max-w-4xl mx-auto px-4 py-16 space-y-6">
+                <h1 class="text-3xl font-bold text-slate-900">Privacy Policy</h1>
+                <p class="text-gray-600 text-sm leading-relaxed">At Rohit Chair & Sofa Repair Service, we respect your privacy and protect your contact information. Details submitted via our booking forms are used strictly for communicating regarding your furniture repair and doorstep service appointments across Delhi NCR.</p>
+            </div>
+            `;
+        }
+
+        function getTermsPageHTML() {
+            return `
+            <div class="max-w-4xl mx-auto px-4 py-16 space-y-6">
+                <h1 class="text-3xl font-bold text-slate-900">Terms and Conditions</h1>
+                <p class="text-gray-600 text-sm leading-relaxed">Service estimates provided over WhatsApp or phone are preliminary and subject to physical inspection. Final quotation depends on furniture condition, foam grade, and fabric choice. Appointments are confirmed upon mutual agreement with our administrator.</p>
+            </div>
+            `;
+        }
+
+        function get404PageHTML() {
+            return `
+            <div class="max-w-md mx-auto px-4 py-28 text-center space-y-6">
+                <h1 class="text-6xl font-bold text-amber-500">404</h1>
+                <h2 class="text-2xl font-bold text-slate-900">Page Not Found</h2>
+                <p class="text-gray-600 text-sm">The page you are looking for does not exist or has been moved.</p>
+                <button onclick="navigate('home')" class="bg-slate-900 text-white px-6 py-3 rounded-xl font-semibold shadow hover:bg-amber-600 transition">Return to Homepage</button>
+            </div>
+            `;
+        }
+
+        // Initialize App on Load
+        window.onload = function() {
+            renderPage('home');
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        };
+    </script>
+</body>
+</html>
